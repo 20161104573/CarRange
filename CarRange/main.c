@@ -14,7 +14,7 @@ int main(int argc, const char * argv[]) {
     FILE *fw;
     char str1[70];
     char str2[70];
-    char year[5],month[5],date[5],time[5],branch[5],sec[5],LONG[11],lat[11],rate[6],course[6],altitude[10],moon[5];
+    char year[5],month[5],date[5],time[5],branch[5],sec[5],a[11],b[11],c[11],d[11],e[11],f[11],rate[6],course[6],altitude[10],moon[5];
     int i;
     fr=fopen("//Users//a20161104573//Desktop//CarRange//GPS170510.log","r+");
     fw=fopen("//Users//a20161104573//Desktop//CarRange//output.csv","w+");
@@ -73,21 +73,55 @@ int main(int argc, const char * argv[]) {
             sec[2]='\0';
             
             
-            
-            for(i=0;i<8;i++)
+            for(i=0;i<2;i++)
             {
-                LONG[i]=str1[i+16];
+                a[i]=str1[i+16];
             }
-            LONG[8]='\0';
+            a[2]='\0';
             
             
             
-            for(i=0;i<9;i++)
+            for(i=0;i<2;i++)
             {
-                lat[i]=str1[i+27];
+                b[i]=str1[i+18];
             }
-            lat[9]='\0';
+            b[2]='\0';
             
+            
+            
+            for(i=0;i<3;i++)
+            {
+                c[i]=str1[i+21];
+            }
+            c[3]='\0';
+            
+            
+            
+            for(i=0;i<2;i++)
+            {
+                d[i]=str1[i+27];
+            }
+            d[2]='\0';
+            
+            
+            
+            for(i=0;i<2;i++)
+            {
+                e[i]=str1[i+29];
+            }
+            e[2]='\0';
+            
+            
+            
+            for(i=0;i<3;i++)
+            {
+                f[i]=str1[i+32];
+            }
+            a[3]='\0';
+
+
+
+
             
             
             for(i=0;i<5;i++)
@@ -120,8 +154,8 @@ int main(int argc, const char * argv[]) {
             moon[2]='\0';
             
             
-            printf("%s年%s月%s日,%s时%s分%s秒,%s度,%s度,%s公里／小时,%s度,%sm,%s颗\n",year,month,date,time,branch,sec,LONG,lat,rate,course,altitude,moon);
-            fprintf(fw,"%s年%s月%s日,%s时%s分%s秒,%s度,%s度,%s公里／小时,%s度,%sm,%s颗\n",year,month,date,time,branch,sec,LONG,lat,rate,course,altitude,moon);
+            printf("%s年%s月%s日,%s时%s分%s秒,%s度%s分%s秒,%s度%s分%s秒,%s公里／小时,%s度,%sm,%s颗\n",year,month,date,time,branch,sec,a,b,c,d,e,f,rate,course,altitude,moon);
+            fprintf(fw,"%s年%s月%s日,%s时%s分%s秒,%s度%s分%s秒,%s度%s分%s秒,%s公里／小时,%s度,%sm,%s颗\n",year,month,date,time,branch,sec,a,b,c,d,e,f,rate,course,altitude,moon);
         }
         fclose(fr);
         fclose(fw);
